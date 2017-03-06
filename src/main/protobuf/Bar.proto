@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package foo.protobuf;
+
+import "scalapb/scalapb.proto";
+
+option (scalapb.options) = {
+  import: "foo.TypeMappers._"
+};
+
+message Bar {
+    required int64 instant = 1 [(scalapb.field).type = "java.time.Instant"];
+}
